@@ -16,11 +16,11 @@ echo "$input" | grep -o '\b\w+\b\s+\b[bB]\w*\b\s+\b\w+\b'
 
 # Question 4: Identify all function declarations (including parameters)
 echo "Question4"
-grep -E '^[a-zA-Z_][a-zA-Z0-9_]*\s+\*?[a-zA-Z_][a-zA-Z0-9_]*\s*\([^)]*\)\s*[{;]' code.c
+grep -E '^\s*[a-zA-Z_][a-zA-Z0-9_]*\s+\*?[a-zA-Z_][a-zA-Z0-9_]*\s*\([^)]*\)\s*[{;]' code.c
 
 # Question 5: Extract lines where a C++ structure is defined using awk
 echo "Question5"
-awk '^\s*struct\s+[a-zA-Z_][a-zA-Z0-9_]*\s*\{' code.c
+awk '^\sstruct\s\w.+' code.c
 
 # Question 6: Replace "marks" with "score" in the code1_2.cpp using sed
 echo "Question6"
@@ -36,7 +36,7 @@ grep '^\s*#\s*[a-zA-Z]+' code.c
 
 # Question 9: Using grep count the total number of lines that contain function declarations or definitions in both files.
 echo "Question9"
-awk '^[a-zA-Z_][a-zA-Z0-9_]*\s+\*?[a-zA-Z_][a-zA-Z0-9_]*\s*\([^)]*\)\s*[{;]' code.c
+grep -E '^[a-zA-Z_][a-zA-Z0-9_]*\s+\*?[a-zA-Z_][a-zA-Z0-9_]*\s*\([^)]*\)\s*[{;]' code.c | wc -l
 
 # Question 10: Extract and list all unique function names using grep and cut
 echo "Question10"
