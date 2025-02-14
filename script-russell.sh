@@ -4,15 +4,15 @@ input="The five boxing wizards jump quickly"
 
 # Question 1: In the input string, Match "bo", followed by any string of any length, including the empty string, followed by "ng".
 echo "Question1"
-echo "$input" | grep -o 'regex_goes_here'
+echo "$input" | grep -o 'bo.+ng'
 
 # Question 2: In the input string, Match a word, at least four letters long, that doesn’t contain "u"
 echo "Question2"
-echo "$input" | grep -o 'regex_goes_here'
+echo "$input" | grep -o '\b(?!\w*u\w*)\w{4,}\b'
 
 # Question 3: In the input string, match three consecutive words, where the middle word begins with "b".
 echo "Question3"
-echo "$input" | grep -o 'regex_goes_here'
+echo "$input" | grep -o '\b\w+\b\s+\b[bB]\w*\b\s+\b\w+\b'
 
 # Question 4: Identify all function declarations (including parameters)
 echo "Question4"
